@@ -1,0 +1,308 @@
+                                                                        LAB 1:-
+
+QUE 1)  Write a java program to print a “Hello World” message.
+
+INPUT:-
+package my.anuddep;
+
+public class Helloworld {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		System.out.println("Hello World");
+
+
+
+	}
+
+}
+
+
+
+OUTPUT:-
+ 
+
+
+
+
+
+
+
+
+
+
+
+QUE2:-Write a program for addition of two number entered by the user.
+INPUT:-
+package Add;
+
+import java.util.Scanner;
+
+public class additionOfTwoNumber {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int num1,num2,result;
+		Scanner sc= new Scanner(System.in);
+		//int a=3,b=3,sum;
+
+		System.out.println("enter the first number");
+		num1=sc.nextInt();
+
+		System.out.println("enter the second number");
+		num2=sc.nextInt();
+		sc.close();
+
+		result=num1+num2;
+
+		System.out.printf("%d+%d=%d",num1,num2,result);
+
+	}
+
+}
+
+
+
+OUTPUT:-
+ 
+
+
+
+
+
+
+QUE3:-Write a java program to check whether a given number is even or odd
+INPUT:-
+
+package evenOddProgram;
+import java.util.Scanner;
+public class EvenOddProgram {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		int num;
+		System.out.println("enter the integer number: ");
+		Scanner sc=new Scanner(System.in);
+		num=sc.nextInt();
+
+		if(num%2==0){
+			System.out.println("the entered  number is even");
+		}
+		else 
+		{
+			System.out.println("entered number is odd");
+		}
+		sc.close();
+
+
+	}
+
+}
+OUTPUT:-
+ 
+ 
+
+
+
+
+
+QUE4:- Write a java program that compares two number and prints the larger one OR
+              Write a java program to find greatest of 3 numbers
+INPUT:-
+package narrowingWidening;
+import java.util.Scanner;
+public class ThreeGreaterNumber {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc=new Scanner(System.in);
+		int num1,num2,num3;
+
+		System.out.println("enter the first number: ");
+		num1=sc.nextInt();
+
+		System.out.println("enter the second number: ");
+		num2=sc.nextInt();
+
+		System.out.println("enter the third number: ");
+		num3=sc.nextInt();
+
+		if(num1>=num2 && num1>=num3) {
+			System.out.println("num1 is greater");
+		}
+		else if(num2>=num1 && num2>=num3) {
+			System.out.println("num2 is greater");
+		}
+		else {
+			System.out.println("num3 is greater");
+		}
+		sc.close();
+
+
+	}
+
+}
+
+OUTPUT:-
+ 
+
+
+
+
+
+QUE5:- CREATE A CALULATOR IN JAVA USING ADDITION SUBTRACTION, MULTIPLICATION, DIVIDE.
+INPUT:-
+package Calculator;
+
+public class calculator {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int a=4, b=5,sum;
+		sum=a+b;
+
+		int c=6, d=5,sub;
+		sub=c-d;
+
+		int e=9,f=4,multi;
+		multi=e*f;
+
+		int g=2,m=10, divide;
+		divide=m/g;
+
+		System.out.println("the sum of the two number is: "+sum);
+		System.out.println("the subtraction of two number is: "+sub);
+		System.out.println("the multiplication of two number is: "+multi);
+		System.out.println("the division of two number is: "+ divide);
+
+
+	}
+
+}
+
+OUTPUT:-
+
+
+ 
+
+
+
+
+
+
+
+
+QUE6:-Write a java program to check if a given number is prime or not
+INPUT:- package narrowingWidening;
+
+public class PrimeNumber {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int limit = 100; // Change this value to print prime numbers up to a different limit
+
+		System.out.println("Prime numbers up to " + limit + " are:");
+
+		for (int num = 2; num <= limit; num++) {
+			if (isPrime(num)) {
+				System.out.print(num + " ");
+			}
+		}
+	}
+
+	public static boolean isPrime(int number) {
+		if (number <= 1) {
+			return false;
+		}
+		for (int i = 2; i <= Math.sqrt(number); i++) {
+			if (number % i == 0) {
+				return false;
+			}
+		}
+		return true;
+	}
+
+}
+
+
+
+OUTPUT:-
+ 
+
+
+
+
+
+
+
+QUE7:- Write a java program that compares two numbers and prints the larger one.
+INPUT:-
+package greatestNumber;
+
+public class GreatestNumber {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int a=8,b=0;
+		if(a>=b) {
+			System.out.println("a is greater than b");
+		}
+		else{
+			System.out.println("b is greater than a");
+		}
+
+	}
+
+}
+
+OUTPUT:-
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+QUE8:-Write a java program that takes an age input from user and determine if they are eligible to vote (considering the legal voting age)
+
+
+INPUT:-
+package votingProgram;
+import java.util.Scanner;
+
+public class VotingProgram {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc=new Scanner(System.in);
+
+		System.out.println("please enter the age");
+		int age=sc.nextInt();
+
+		if(age>=18) {
+			System.out.println("you are eligible for voting");
+
+		}
+		else {
+			System.out.println("you are not eligible for voitng");
+		}
+
+		sc.close();
+
+	}
+
+}
+
+OUTPUT:-
+ 
+ 
+
