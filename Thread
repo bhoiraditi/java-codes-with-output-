@@ -1,0 +1,276 @@
+LAB 8
+
+QUE1:- Write the programme to open a text file named input 2, and copy its contents to an output text file output 2.
+Input:-
+package inputOutput;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class InputOutputDemo {
+
+	public static void main(String[] args) throws IOException {
+		// TODO Auto-generated method stub
+
+		//giving the path of the file in which we written the information
+		File inputFile= new File("D:\\java class\\new\\Input.txt");
+
+		//giving the path of the file where we paste the information
+		File outputFile=new File("D:\\java class\\new\\Output.txt");
+
+		//for reading the data from the file
+		FileReader a=new FileReader(inputFile);
+
+		//for writing the data 
+		FileWriter b=new FileWriter(outputFile);
+
+		//for searching the information
+		int c;
+
+		while((c=a.read())!=-1)
+			b.write(c);
+
+		a.close();
+		b.close();
+
+
+	}
+
+}
+
+OUTPUT:-
+ 
+
+ 
+
+QUE2:- Write the programme to show multithreading for the string “multi threads”. Show the resulting output.
+Input:-
+package lab8;
+
+public class MultiThreadDemo {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		String str = "multi threads";
+
+		// Create and start threads
+		Thread thread1 = new Thread(new PrintSubstring(str, 0, 5));
+		Thread thread2 = new Thread(new PrintSubstring(str, 6, 12));
+
+		thread1.start();
+		thread2.start();
+
+		try {
+			// Wait for threads to complete
+			thread1.join();
+			thread2.join();
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
+}
+
+// Runnable implementation to print a substring
+class PrintSubstring implements Runnable {
+	private String str;
+	private int start;
+	private int end;
+
+	public PrintSubstring(String str, int start, int end) {
+		this.str = str;
+		this.start = start;
+		this.end = end;
+	}
+
+	@Override
+	public void run() {
+		// Print the substring from the start index to the end index
+		System.out.println(str.substring(start, end));
+	}
+
+}
+
+Output:-
+
+ 
+
+
+Que 3:- Implement a Java program that creates a thread using the Runnable interface. The thread should print numbers from 1 to 10 with a delay of 1 second between each number.
+Input:-
+package lab8;
+
+public class RunnableInterface implements Runnable {
+
+	@Override
+	public void run() {
+		// Loop to print numbers from 1 to 10
+		for (int i = 1; i <= 10; i++) {
+			System.out.println(i);
+			try {
+				// Delay of 1 second (1000 milliseconds)
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
+	public static void main(String[] args) {
+		// Create an instance of printing number
+		Runnable numberPrinter = new RunnableInterface();
+
+		// Create a thread with the printing number instance
+		Thread thread = new Thread(numberPrinter);
+
+		// Start the thread
+		thread.start();
+
+		// waiting for finishing the thread
+		try {
+			thread.join();
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
+}
+
+Output:- 
+
+ 
+
+
+
+
+
+
+
+
+
+QUE 4:- Write a Java program that creates and starts three threads. Each thread should print its name and count from 1 to 5 with a delay of 500 milliseconds between each count.
+Input:-
+package lab8;
+
+public class ThreadDemo {
+
+    public static void main(String[] args) {
+        // Create and start three threads
+        Thread thread1 = new Thread(new CountingTask("Thread-1"));
+        Thread thread2 = new Thread(new CountingTask("Thread-2"));
+        Thread thread3 = new Thread(new CountingTask("Thread-3"));
+
+        thread1.start();
+        thread2.start();
+        thread3.start();
+    }
+}
+
+// Runnable implementation to count and print with a delay
+class CountingTask implements Runnable {
+    private String threadName;
+
+    public CountingTask(String name) {
+        this.threadName = name;
+    }
+
+    @Override
+    public void run() {
+        // Count from 1 to 5 with a delay of 500 milliseconds
+        for (int i = 1; i <= 5; i++) {
+            System.out.println(threadName + " - Count: " + i);
+            try {
+                // Delay of 500 milliseconds
+                Thread.sleep(500);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+}
+
+Output:-
+ 
+
+
+
+
+
+QUE 5:- Create a Java program that demonstrates thread priorities. Create three threads with different priorities and observe the order in which they execute.
+INPUT:- 
+package thread;
+
+class MyThread extends Thread
+{
+	public MyThread(String name, int priority)
+	{
+		super(name);
+		setPriority(priority);
+	}
+	public void run() 
+	//interting the loop
+	{
+		for (int i=1; i<=5; i++)
+		{
+			System.out.println(getName() +":Count "+i);
+			try
+			{
+				Thread.sleep(100);
+			}
+			catch(InterruptedException e) {
+				System.out.println(e);
+			}
+		}
+	}
+}
+public class PrivorityThread {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		//giving the priority
+		MyThread thread1=new MyThread("High priority thread",
+				Thread.MAX_PRIORITY);
+
+		MyThread thread2=new MyThread("Midium priority thread",
+				Thread.NORM_PRIORITY);
+
+		MyThread thread3=new MyThread("Low priority thread",
+				Thread.MIN_PRIORITY);
+
+		//excuting the tread
+		thread1.start();
+		thread2.start();
+		thread3.start();
+
+
+	}
+
+}
+
+
+
+
+
+
+
+Output:-
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
