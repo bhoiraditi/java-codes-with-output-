@@ -1,0 +1,415 @@
+LAB QUESTION 5
+
+QUE 1:- Write a Java program that reads a string from the user and uses StringTokenizer to split the string into individual words. Print each word on a new line.
+
+INPUT:-
+package String;
+import java.util.StringTokenizer;
+import java.util.Scanner;
+public class StringSplitter {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		//initializing the scanner
+		Scanner sc=new Scanner(System.in);
+		//getting input from user
+		System.out.println("Enter the String");
+		
+		String name = sc.nextLine();
+
+		//creating object of the StringTokenizer
+		StringTokenizer st=new StringTokenizer(name);
+
+		//condition for splitting the string into a individual words
+		while(st.hasMoreTokens()) {
+			System.out.println(st.nextToken());
+		}
+		sc.close();
+
+	}
+
+}
+
+OUTPUT:-
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+QUE 2:-  Write a Java program that reads a string from the user and uses StringTokenizer to count the number of words in the string.
+INPUT:-
+package String;
+import java.util.Scanner;
+import java.util.StringTokenizer;
+public class StringCount 
+{
+
+	public static void main(String[] args)
+	{
+		// TODO Auto-generated method stub
+		//initializing the scanner
+		Scanner sc=new Scanner(System.in);
+
+		//getting output from the user
+		System.out.println("Enter the string: ");
+
+		String string=sc.nextLine();
+
+		//creating the object of the StringTokenizer
+		StringTokenizer s=new StringTokenizer(string);
+
+		//code for counting the words
+		int wordCount=0;
+		while(s.hasMoreTokens())
+		{
+			s.nextToken();
+			wordCount++;
+
+		}
+		System.out.println("the word count is: "+wordCount);
+		sc.close();
+
+
+	}
+}
+OUTPUT:- 
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+QUE 3:-Write a java program to create a LinkedList of string, add elements at specific position (beginning,middle,end) and print the list.
+
+INPUT:-
+package Collection;
+import java.util.*;
+public class LinkedListAddtingElement {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		//creating the object of linked list
+		LinkedList<String>a=new LinkedList<String>();
+
+		//adding the elements in the linked list
+		a.add("pen");
+		a.add("pencil");
+		a.add("eraser");
+
+		//printing the linked list
+		System.out.println("printing the LinkedList: "+a);
+
+		//adding element in the middle of linked list
+		a.add(0,"notebook");
+		System.out.println("printing the elements in the middel of LinkedList: "+a);
+
+		//adding elements in the beginning of the linked list
+		a.addFirst("book");
+		System.out.println("printing the elements in beginning of the LinkedList: "+a);
+
+		//adding the elements in ending of linked list
+		a.addLast("ruler");
+		System.out.println("printing the elements in ending of the LinkedList: "+a);
+
+
+	}
+
+}
+OUTPUT:-
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+QUE 4:-Write a Java program to sort a given array list.
+INPUT:- 
+package Array;
+
+import java.util.ArrayList;
+import java.util.Collections;
+
+public class SortingArray {
+	public static void main(String[] args) {
+		// Create an ArrayList and add some integers
+		ArrayList<Integer> numbers = new ArrayList<>();
+		numbers.add(5);
+		numbers.add(1);
+		numbers.add(4);
+		numbers.add(2);
+		numbers.add(3);
+
+		// Printing the arraylist before sorting 
+		System.out.println("Before sorting: " + numbers);
+
+		// Sorted ArrayList
+		Collections.sort(numbers);
+
+		// Printing the arraylist after sorting
+		System.out.println("After sorting: " + numbers);
+	}
+}
+
+OUTPUT:-
+ 
+
+
+
+
+
+
+
+
+
+
+QUE 5:- Write a java program to replace the second element of an ArrayList with the specified element.
+
+INPUT:-
+package Collection;
+import java.util.*;
+public class ReplacingElement {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		//creating the LinkedList object
+		LinkedList<String>a=new LinkedList<String>();
+
+		//adding elements in list
+		a.add("aditi");
+		a.add("anjali");
+		a.add("karishma");
+
+		//printing the all elements
+		System.out.println("All elements in the list: "+a);
+
+		//replacing the elements
+		a.set(1, "sakshi");
+
+		//printing the replacing elements
+		System.out.println("new list: "+a);
+
+	}
+
+}
+OUTPUT:-
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+QUE 6:- Write a java program to iterate a linked list in reverse order.
+
+INPUT:- package Collection;
+import java.util.*;
+import java.util.Collections;
+public class LinkedListReverseDemo {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		//creating the object of the LinkedList
+		LinkedList<String>list=new LinkedList<String>();
+
+		//importing the elements in the list
+		list.add("aditi");
+		list.add("sakshi");
+		list.add("karishma");
+		list.add("kajal");
+		list.add("anjali");
+
+		//printing the original elements in the list
+		Collections.sort(list);
+		System.out.println("the sorted list: "+list);
+
+		//implementing the logic for reversing the elements
+		Collections.sort(list,Collections.reverseOrder());
+
+		System.out.println("the reverse form of the list: "+list);
+
+
+
+
+
+
+	}
+
+}
+
+OUTPUT:-
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+QUE 7:- Write a java program to retrieve, but not remove the last element of a LinkedList
+INPUT:-
+ package Collection;
+import java.util.*;
+public class RetrivingElement {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		//creating the object object of the linked list
+		LinkedList<String>a=new LinkedList<String>();
+
+		//importing the element in the list
+		a.add("aditi");
+		a.add("sakshi");
+		a.add("karishma");
+		a.add("kajal");
+
+		//printing the values in the list
+		System.out.println("the last element is: "+a);
+
+	}
+
+}
+
+
+
+
+
+
+
+OUTPUT:-
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+QUE 8:-Write a java program to create a LinkedList of integers and print all the elements.
+INPUT:-
+package Collection;
+import java.util.*;
+
+public class LinkedListInteger {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		//Creating the object of linked list
+		LinkedList<Integer>a=new LinkedList<Integer>();
+		
+		//importing the element
+		a.add(1);
+		a.add(5);
+		a.add(6);
+		a.add(9);
+		a.add(3);
+		
+		//printing the elements 
+		System.out.println("the integer numbers in the list are: "+a);
+		
+
+	}
+
+}
+
+
+
+
+OUTPUT:-
+ 
