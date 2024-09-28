@@ -1,0 +1,281 @@
+LAB 7
+
+QUE 1 :- Write a program that tries to access an element outside the bounds of an array and handles the ArrayIndexOutOfBoundsException by printing a user-friendly message.
+INPUT:- 
+package exceptionDemo;
+
+public class ExceptionHandlingDemo {
+
+	public static void main(String[] args) {
+		// Define an array with 5 elements
+		int[] numbers = {10,20,30,50,60};
+
+		// Index that is out of bounds
+		int index = 10;
+
+		try {
+			// Attempt to access an element at the out-of-bounds index
+			int value = numbers[index];
+			System.out.println("The value at index " + index + " is: " + value);
+		} 
+		catch (ArrayIndexOutOfBoundsException e) {
+			// Handle the exception with a user-friendly message
+			System.out.println("Error: Index " + index + " is out of bounds.");
+			System.out.println("Please provide an index between 0 and " + (numbers.length - 1) + ".");
+		}
+
+		// Continue with the program
+		System.out.println("Program execution completed.");
+	}
+}
+
+OUTPUT:-
+ 
+
+
+
+
+
+
+
+
+
+
+QUE 2:- Write a program that attempts to divide a number by zero and handles the ArithmeticException by printing a message that division by zero is not allowed.
+INPUT:- 
+package exceptionDemo;
+import java.util.Scanner;
+public class ArithmaticDemo {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		//creating the scanner object
+		Scanner sc=new Scanner(System.in);
+
+		//getting the user input
+		System.out.println("enter the first number: ");
+		int num=sc.nextInt();
+
+		//getting the user input
+		System.out.println("enter the second number: ");
+		int num1=sc.nextInt();
+
+		//for dividing two number
+		int result= num/num1;
+
+		//for printing two result
+		System.out.println("Result:"+ result);
+
+		//closing the scanner object
+		sc.close();
+	}
+}
+
+OUTPUT:-
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+QUE 3:- Write a Java program that reads an integer input from the user and throws an IllegalArgumentException if the input is negative.
+INPUT:- 
+package exceptionDemo;
+import java.util.Scanner;
+public class NegativeIntegerExceptionDemo {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		//creating the scanner object
+		Scanner sc=new Scanner (System.in);
+
+		try {
+
+			//getting input from the user
+			System.out.println("enter the number: ");
+			int num=sc.nextInt();
+
+			//checking that user is entering the negative number or not if yes it will throw a IllegalArgumentException
+			if(num<0) {
+				throw new IllegalArgumentException ("negative numbers are not allowed:"+num);
+			}
+			else {
+				System.out.println("enter number is positive: "+num);
+			}
+		}
+		catch (IllegalArgumentException e){
+			System.out.println("Exception cought: "+e.getMessage());
+		}
+		finally {
+
+
+			//closing the scanner object
+			sc.close();
+		}
+	}
+}
+
+
+
+OUTPUT:-
+ 
+
+
+
+
+
+
+QUE 4:- Create a Java method that divides two numbers and declares that it throws an ArithmeticException. Handle the exception in the main method.
+INPUT:-
+package exceptionDemo;
+
+public class DivisionExceptionDemo {
+
+	//  for divide two numbers, declaring it throws an ArithmeticException
+	public static int divide(int num, int num2) throws ArithmeticException 
+	{
+		return num / num2; // This will throw ArithmeticException if denominator is 0
+	}
+
+	public static void main(String[] args) 
+	{
+		try 
+		{
+		//values for division method
+			int result = divide(10, 0);
+			System.out.println("Result: " + result);
+		} 
+		catch (ArithmeticException e)
+
+		{
+			// Handling the ArithmeticException if it is thrown
+			System.out.println("Exception caught: Division by zero is not allowed.");
+		}
+	}
+}
+
+OUTPUT:-
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+QUE 5:- Define a custom exception called InvalidAgeException. Write a Java program that throws this exception if the age provided is less than 18. Handle the exception and display an appropriate message
+
+INPUT:-
+package exception;
+
+import java.util.Scanner;
+
+public class CustomDemo
+{
+
+	// Method to validate age, throws InvalidAgeException if age < 18
+	public static void validateAge(int age) throws InvalidAgeException
+	{
+		if (age < 18)
+		{
+			throw new InvalidAgeException("Age must be 18 or older. Provided age: " + age);
+		} else
+		{
+			System.out.println("Age is valid: " + age);
+		}
+	}
+
+	public static void main(String[] args) 
+	{
+		// Create a Scanner object to read input from the user
+		Scanner scanner = new Scanner(System.in);
+
+		try 
+		{
+			// Prompt the user to enter their age
+			System.out.print("Enter your age: ");
+			int age = scanner.nextInt();
+
+			// Validate the age using the validateAge method
+			validateAge(age);
+		} 
+		catch (InvalidAgeException e)
+		{
+			// Handle the InvalidAgeException and display an appropriate message
+			System.out.println("Exception caught: " + e.getMessage());
+		}
+		finally
+		{
+			// Close the scanner
+			scanner.close();
+		}
+	}
+}
+
+
+OUTPUT:-
+
+ 
+
+ 
+QUE 6- Write a Java program that has a method to validate a user's email address. The method should throw a custom exception InvalidEmailException if the email does not contain @ and .. Handle the exception in the main method.
+INPUT:-
+package exceptionDemo;
+
+import java.util.Scanner;
+
+public class EmailChecker {
+
+	// Method to validate the email address, throws InvalidEmailException if invalid
+	public static void validateEmail(String email) throws InvalidEmailException {
+		// Check if the email contains "@" and "."
+		if (!email.contains("@") || !email.contains(".")) {
+			throw new InvalidEmailException("Invalid email address: " + email);
+		} else {
+			System.out.println("Email is valid: " + email);
+		}
+	}
+
+	public static void main(String[] args) {
+		// Create a Scanner object to read input from the user
+		Scanner scanner = new Scanner(System.in);
+
+		try {
+			// Prompt the user to enter their email address
+			System.out.print("Enter your email address: ");
+			String email = scanner.nextLine();
+
+			// Validate the email address using the validateEmail method
+			validateEmail(email);
+		} catch (InvalidEmailException e) {
+			// Handle the InvalidEmailException and display an appropriate message
+			System.out.println("Exception caught: " + e.getMessage());
+		} finally {
+			// Close the scanner
+			scanner.close();
+		}
+	}
+}
+
+
+OUTPUT:-
+ 
